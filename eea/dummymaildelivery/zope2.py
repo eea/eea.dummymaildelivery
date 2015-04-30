@@ -1,11 +1,14 @@
 import logging
 import importlib
+import urllib
 
 log = logging.getLogger('eea.dummymaildelivery')
 
 
 def patched_createDataManager(self, fromaddr, toaddrs, message):
-    import pdb; pdb.set_trace()
+    to = urllib.quote(message['To'])
+    destination = 'eionet.testing+%s@gmail.com' % to
+    message.replace_header('To', destination)
     return self.old_createDataManager(fromaddr, toaddrs, message)
 
 
