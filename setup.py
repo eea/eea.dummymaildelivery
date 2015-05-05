@@ -1,18 +1,18 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = '1.1'
 
 setup(name='eea.dummymaildelivery',
       version=version,
-      description="A IMailDelivery that delivers to a single specified address",
+      description=("A IMailDelivery that delivers "
+                   "to a single specified address"),
       long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
-      classifiers=[
-        "Programming Language :: Python",
-        ],
+      classifiers=["Programming Language :: Python",
+                   ],
       keywords='',
       author='',
       author_email='',
@@ -24,6 +24,7 @@ setup(name='eea.dummymaildelivery',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'importlib',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
