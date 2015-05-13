@@ -7,8 +7,9 @@ log = logging.getLogger('eea.dummymaildelivery')
 
 def patched_createDataManager(self, fromaddr, toaddrs, message):
     to = urllib.quote(message['To'])
-    destination = 'eionet.testing+%s@gmail.com' % to
-    message.replace_header('To', destination)
+    if to:
+        destination = 'eionet.testing+%s@gmail.com' % to
+        message.replace_header('To', destination)
     return self.old_createDataManager(fromaddr, toaddrs, message)
 
 
