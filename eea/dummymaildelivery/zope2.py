@@ -6,11 +6,11 @@ log = logging.getLogger('eea.dummymaildelivery')
 
 
 def patched_createDataManager(self, fromaddr, toaddrs, message):
-    to = urllib.quote(message['To'])
+    to = urllib.quote(message.get('To', ''))
     if to:
         destination = 'eionet.testing+%s@gmail.com' % to
         message.replace_header('To', destination)
-    cc = urllib.quote(message['Cc'])
+    cc = urllib.quote(message.get('Cc', ''))
     if cc:
         patched_cc = 'eionet.testing+%s@gmail.com' % cc
         message.replace_header('Cc', patched_cc)
