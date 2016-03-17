@@ -14,7 +14,7 @@ def patched_createDataManager(self, fromaddr, toaddrs, message):
     if cc:
         patched_cc = 'eionet.testing+%s@gmail.com' % cc
         message.replace_header('Cc', patched_cc)
-    return self.old_createDataManager(fromaddr, toaddrs, message)
+    return self.old_createDataManager(fromaddr, [destination], message)
 
 
 def initialize(context):
