@@ -1,4 +1,4 @@
 1.0 (unreleased)
 ----------------
-* skip patching for emtpy To [dumitval]
+* handle emtpy To [dumitval]
 * initial import
